@@ -1,10 +1,10 @@
 pipeline {
     agent any
 
-    tools {
+   // tools {
         // Install the Maven version configured as "M3" and add it to the path.
-        maven "MAVEN_HOME"
-    }
+     //   maven "C:/Program Files/apache-maven-3.8.5/bin"
+    //}
 
     stages {
         stage('Build') {
