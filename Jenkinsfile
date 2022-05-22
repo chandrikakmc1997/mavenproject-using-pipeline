@@ -11,7 +11,7 @@ pipeline {
             steps {
                 // Get some code from a GitHub repository
                 git 'https://github.com/chandrikakmc1997/mavenproject-using-pipeline.git'
-                bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                sh "mvn clean install"
             }
 
             post {
