@@ -1,18 +1,8 @@
-pipeline {
-    agent any
-
-   // tools {
-        // Install the Maven version configured as "M3" and add it to the path.
-     //   maven "C:/Program Files/apache-maven-3.8.5/bin"
-    //}
-
-    stages {
-        stage('Build') {
-            steps {
-                // Get some code from a GitHub repository
-               // git 'https://github.com/chandrikakmc1997/mavenproject-using-pipeline.git'
-                sh "mvn clean install"
-            }
-        }
-    }
+node {
+  stage ('Build') {
+    git url: 'https://github.com/chandrikakmc1997/mavenproject-using-pipeline.git'
+    withMaven {
+      sh "mvn clean verify"
+    } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe reports and FindBugs reports
+  }
 }
